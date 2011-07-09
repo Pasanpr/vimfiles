@@ -1,5 +1,6 @@
 set nocompatible                  " Must come first because it changes other options.
 
+runtime! autoload/pathogen.vim
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
@@ -25,7 +26,7 @@ set ruler                         " Show cursor position.
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
-set wrap                          " Turn on line wrapping.
+set nowrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
 set textwidth=79
 
@@ -50,6 +51,9 @@ set laststatus=2
 
 
 " Remaps
+
+" Remap leader to ','
+let mapleader=","
 
 " Use 'jj' to exit insert mode
 inoremap jj <ESC>l
@@ -104,9 +108,6 @@ endif
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
-
-" ZoomWin configuration
-map <Leader><Leader> :ZoomWin<CR>
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
