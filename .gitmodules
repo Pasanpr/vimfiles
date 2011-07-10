@@ -22,3 +22,6 @@
 [submodule "bundle/rubytest"]
 	path = bundle/rubytest
 	url = https://github.com/janx/vim-rubytest.git
+[submodule "ack.vim"]
+	path = ack.vim
+	url = https://github.com/mileszs/ack.vim.git
