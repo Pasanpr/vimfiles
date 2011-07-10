@@ -28,7 +28,8 @@ set hlsearch                      " Highlight matches.
 
 set nowrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
-set textwidth=79
+set textwidth=0
+set colorcolumn=80
 
 set list listchars=tab:\ \ ,trail:•
 
@@ -90,6 +91,7 @@ colorscheme ir_black
 
 hi Cursor guibg=white
 hi Visual guibg=#333333 guifg=#EEEEEE
+hi ColorColumn guibg=#272727
 
 " NERDTree colors
 
