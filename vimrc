@@ -91,7 +91,7 @@ colorscheme ir_black
 
 hi Cursor guibg=white
 hi Visual guibg=#333333 guifg=#EEEEEE
-hi ColorColumn guibg=#272727
+hi ColorColumn guibg=#222222
 
 " NERDTree colors
 
@@ -123,3 +123,8 @@ let NERDTreeDirArrows=1
 " Command-T
 let g:CommandTMaxHeight=20
 let g:CommandTMatchWindowReverse=1
+
+" RubyTest
+map <Leader>s <Plug>RubyTestRun
+map <Leader>S <Plug>RubyFileRun
+
