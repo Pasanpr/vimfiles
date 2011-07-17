@@ -78,6 +78,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Buffer navigation
+nnoremap <Leader>r <C-^>
 
 " Appearance
 
