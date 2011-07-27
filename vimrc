@@ -81,6 +81,9 @@ nnoremap <C-l> <C-w>l
 " Buffer navigation
 nnoremap <Leader>r <C-^>
 
+" Remove trailing whitespace
+nnoremap <Leader>w :%s/\s\+$//<CR>
+
 " Appearance
 
 set background=dark
