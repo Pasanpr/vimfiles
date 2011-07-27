@@ -133,3 +133,9 @@ let g:CommandTMatchWindowReverse=1
 map <Leader>s <Plug>RubyTestRun
 map <Leader>S <Plug>RubyFileRun
 
+if !exists("g:rubytest_cmd_spec")
+  let g:rubytest_cmd_spec = "bundle exec rspec %p"
+endif
+if !exists("g:rubytest_cmd_example")
+  let g:rubytest_cmd_example = "bundle exec rspec %p -l %c"
+endif
