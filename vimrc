@@ -132,4 +132,3 @@ let g:CommandTMatchWindowReverse=1
 " RubyTest
 map <Leader>s <Plug>RubyTestRun
 map <Leader>S <Plug>RubyFileRun
-
