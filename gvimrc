@@ -1,4 +1,4 @@
-set guifont=Inconsolata\ XL:h14       " Font family and font size.
+set guifont=Inconsolata:h14       " Font family and font size.
 set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
@@ -30,6 +30,8 @@ if has("gui_macvim")
   " Adjust viewports to the same size
   map <Leader>= <C-w>=
   imap <Leader>= <Esc> <C-w>=
+
+  imap <C-tab> <C-x><C-u>
 endif
 
 
@@ -59,7 +61,7 @@ endfunction
 " Project Tree
 autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 autocmd FocusGained * call s:UpdateNERDTree()
-autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+"autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
 
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
@@ -182,3 +184,7 @@ call s:DefineCommand("touch", "Touch")
 call s:DefineCommand("rm", "Remove")
 call s:DefineCommand("e", "Edit")
 call s:DefineCommand("mkdir", "Mkdir")
+
+nnoremap <Leader>jc :JavaCorrect<CR>
+nnoremap <Leader>jim :JavaImportMissing<CR>
+nnoremap <Leader>jic :JavaImportClean<CR>

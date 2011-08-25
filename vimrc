@@ -20,7 +20,7 @@ set wildmode=list:longest         " Complete files like a shell.
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
 
-set relativenumber                " Relative line number
+set number                        " Normal line number
 set ruler                         " Show cursor position.
 
 set incsearch                     " Highlight matches as you type.
@@ -67,7 +67,7 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 " Quicker command mode
-nnoremap ; :
+"nnoremap ; :
 
 " Hit esc to clear search highlights
 nnoremap <silent> <esc> :noh<return><esc>
@@ -98,6 +98,11 @@ hi Cursor guibg=white
 hi Visual guibg=#333333 guifg=#EEEEEE
 hi ColorColumn guibg=#222222
 
+" SignColumn
+hi SignColumn term=standout ctermfg=11 ctermbg=8 guifg=Cyan guibg=#666666
+hi Error term=reverse ctermfg=15 ctermbg=12 gui=none guifg=#f26168 guibg=black
+hi WarningMsg term=standout ctermfg=15 ctermbg=12 gui=bold guifg=#ffe296 guibg=black
+
 " NERDTree colors
 
 autocmd VimEnter * hi NERDTreeDir guifg=#eeeeee gui=bold
@@ -113,8 +118,14 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 endif
 
-" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
+" Thorfile, Rakefile, Vagrantfile, Prawn and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.prawn} set ft=ruby
+
+" Thorfile, Rakefile, Vagrantfile, Prawn and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.prawn} set ft=ruby
+
+" Bones files are javscript
+au BufRead,BufNewFile {*.bones} set ft=javascript
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
@@ -132,7 +143,7 @@ let g:CommandTMatchWindowReverse=1
 " RubyTest
 map <Leader>s <Plug>RubyTestRun
 map <Leader>S <Plug>RubyFileRun
-
+"
 "if !exists("g:rubytest_cmd_spec")
   "let g:rubytest_cmd_spec = "bundle exec rspec %p"
 "endif
