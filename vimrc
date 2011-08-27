@@ -89,11 +89,6 @@ nnoremap <Leader>w :%s/\s\+$//<CR>
 set background=dark
 colorscheme ir_black
 
-"hi clear CursorLine
-"au InsertEnter * hi CursorLine guibg=#073642
-"au InsertLeave * hi CursorLine guibg=#05323d
-"hi CursorLine guibg=#05323d
-
 hi Cursor guibg=white
 hi Visual guibg=#333333 guifg=#EEEEEE
 hi ColorColumn guibg=#222222
@@ -116,16 +111,16 @@ autocmd VimEnter * hi NERDTreeExecFile gui=none
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal g'\"" | endif
+
+  " Thorfile, Rakefile, Vagrantfile, Prawn and Gemfile are Ruby
+  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.prawn} set ft=ruby
+
+  " Bones files are javscript
+  au BufRead,BufNewFile {*.bones} set ft=javascript
+
+  " Java
+  au FileType java setlocal ts=4 sts=4 sw=4 expandtab
 endif
-
-" Thorfile, Rakefile, Vagrantfile, Prawn and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.prawn} set ft=ruby
-
-" Thorfile, Rakefile, Vagrantfile, Prawn and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.prawn} set ft=ruby
-
-" Bones files are javscript
-au BufRead,BufNewFile {*.bones} set ft=javascript
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
@@ -143,10 +138,4 @@ let g:CommandTMatchWindowReverse=1
 " RubyTest
 map <Leader>s <Plug>RubyTestRun
 map <Leader>S <Plug>RubyFileRun
-"
-"if !exists("g:rubytest_cmd_spec")
-  "let g:rubytest_cmd_spec = "bundle exec rspec %p"
-"endif
-"if !exists("g:rubytest_cmd_example")
-  "let g:rubytest_cmd_example = "bundle exec rspec %p -l %c"
-"endif
+
