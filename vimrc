@@ -84,6 +84,12 @@ nnoremap <Leader>r <C-^>
 " Remove trailing whitespace
 nnoremap <Leader>w :%s/\s\+$//<CR>
 
+" TextMate indentation
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
+
 " Appearance
 
 set background=dark
