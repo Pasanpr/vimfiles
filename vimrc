@@ -37,7 +37,7 @@ set visualbell                    " No beeping.
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set directory=~/.vim/tmp,.  " Keep swap files in one location
 
 set tabstop=2                     " Global tab width.
 set shiftwidth=2                  " And again, related.
@@ -89,6 +89,9 @@ nmap <D-[> <<
 nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
+
+" Replace word with yanked word
+nmap <Leader>p ciw<C-r>0<esc>
 
 " Appearance
 

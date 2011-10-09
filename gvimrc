@@ -30,8 +30,6 @@ if has("gui_macvim")
   imap <C-tab> <C-x><C-u>
 endif
 
-
-
 " Below is mostly NERDTree related and was taken from Janus (github.com/carlhuda/janus)
 
 " Utility functions to create file commands
