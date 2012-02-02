@@ -62,6 +62,11 @@ inoremap jj <ESC>l
 " Shift-Enter to exit from insert mode
 inoremap <S-CR> <Esc>l
 
+" Shift-j/k visual select line up/down
+nnoremap <S-j> <S-v>j
+nnoremap <S-k> <S-v>k
+vnoremap <S-k> k
+
 " Use tab to jump between do/end etc.
 nnoremap <tab> %
 vnoremap <tab> %
@@ -91,12 +96,15 @@ vmap <D-[> <gv
 vmap <D-]> >gv
 
 " Replace word with yanked word
-nmap <Leader>p ciw<C-r>0<esc>
+nmap <Leader>o ciw<C-r>0<esc>
+" Convenience for pasting last yanked word (not deletions)
+nmap <Leader>p "0p<esc>
 
 " Appearance
 
 set background=dark
-colorscheme ir_black
+"colorscheme ir_black
+colorscheme solarized
 
 hi Cursor guibg=white
 hi Visual guibg=#333333 guifg=#EEEEEE
@@ -125,7 +133,7 @@ if has("autocmd")
   au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.prawn} set ft=ruby
 
   " Bones files are javscript
-  au BufRead,BufNewFile {*.bones} set ft=javascript
+  au BufRead,BufNewFile {json,*.bones} set ft=javascript
 
   " Java
   au FileType java setlocal ts=4 sts=4 sw=4 expandtab
