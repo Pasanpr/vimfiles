@@ -51,6 +51,17 @@ set gdefault                      " Default regexes to global
 set laststatus=2
 
 
+" From GRB's .vimrc - makes current window have a min size
+set winwidth=84
+set winminwidth=20
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=10
+set winminheight=10
+set winheight=999
+
+
 " Remaps
 
 " Remap leader to ','
@@ -134,6 +145,8 @@ if has("autocmd")
 
   " Bones files are javscript
   au BufRead,BufNewFile {json,*.bones} set ft=javascript
+  "
+  au BufRead,BufNewFile {*.tin} set ft=tintin
 
   " Java
   au FileType java setlocal ts=4 sts=4 sw=4 expandtab
@@ -143,7 +156,7 @@ endif
 let macvim_hig_shift_movement = 1
 
 " NERDTree configuration
-let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$', '\.git$', '\.bundle$', '\.sass-cache$']
 map <Leader>n :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
