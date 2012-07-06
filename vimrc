@@ -4,6 +4,9 @@ runtime! autoload/pathogen.vim
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
+" As directed by ctrlp setup
+set runtimepath^=~/.vim/bundle/ctrp.vim
+
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
@@ -57,8 +60,8 @@ set winminwidth=20
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
-set winheight=10
-set winminheight=10
+set winheight=15
+set winminheight=15
 set winheight=999
 
 
@@ -97,6 +100,9 @@ nnoremap <C-l> <C-w>l
 " Buffer navigation
 nnoremap <Leader>r <C-^>
 
+" Ctrl-P
+nnoremap <Leader>t :CtrlP<return>
+
 " Remove trailing whitespace
 nnoremap <Leader>w :%s/\s\+$//<CR>
 
@@ -114,6 +120,7 @@ nmap <Leader>p "0p<esc>
 " Appearance
 
 set background=dark
+"set background=light
 "colorscheme ir_black
 colorscheme solarized
 
@@ -141,7 +148,7 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 
   " Thorfile, Rakefile, Vagrantfile, Prawn and Gemfile are Ruby
-  au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.prawn} set ft=ruby
+  au BufRead,BufNewFile {Guardfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,*.prawn} set ft=ruby
 
   " Bones files are javscript
   au BufRead,BufNewFile {json,*.bones} set ft=javascript
@@ -150,6 +157,10 @@ if has("autocmd")
 
   " Java
   au FileType java setlocal ts=4 sts=4 sw=4 expandtab
+
+  " Toggle relative vs absolute line numbers on insert
+  autocmd InsertEnter * :set number
+  autocmd InsertLeave * :set relativenumber
 endif
 
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
