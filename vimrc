@@ -4,9 +4,6 @@ runtime! autoload/pathogen.vim
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
-" As directed by ctrlp setup
-set runtimepath^=~/.vim/bundle/ctrp.vim
-
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
@@ -99,9 +96,6 @@ nnoremap <C-l> <C-w>l
 
 " Buffer navigation
 nnoremap <Leader>r <C-^>
-
-" Ctrl-P
-nnoremap <Leader>t :CtrlP<return>
 
 " Remove trailing whitespace
 nnoremap <Leader>w :%s/\s\+$//<CR>
