@@ -43,3 +43,6 @@
 [submodule "bundle/tintin"]
 	path = bundle/tintin
 	url = https://github.com/vim-scripts/tintin.vim.git
+[submodule "bundle/handlebars"]
+	path = bundle/handlebars
+	url = git://github.com/nono/vim-handlebars.git

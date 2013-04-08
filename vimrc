@@ -57,9 +57,9 @@ set winminwidth=20
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
-set winheight=15
-set winminheight=15
-set winheight=999
+"set winheight=15
+"set winminheight=15
+"set winheight=999
 
 
 " Remaps
@@ -94,6 +94,13 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" resize vertical split window
+nmap <C-Left> <C-W><<C-W><
+nmap <C-Right> <C-W>><C-W>>
+" resize horzontal split window
+nmap <C-Up> <C-W>+<C-W>+
+nmap <C-Down> <C-W>-<C-W>-
+
 " Buffer navigation
 nnoremap <Leader>r <C-^>
 
@@ -111,12 +118,25 @@ nmap <Leader>o ciw<C-r>0<esc>
 " Convenience for pasting last yanked word (not deletions)
 nmap <Leader>p "0p<esc>
 
+" Maxmize split
+nmap <Leader>m <C-w>_<C-w>\|
+
 " Appearance
 
 set background=dark
 "set background=light
 "colorscheme ir_black
-colorscheme solarized
+"colorscheme solarized
+"colorscheme railscasts
+"colorscheme fruity
+colorscheme jellybeans
+"colorscheme refactor
+"colorscheme vividchalk
+"colorscheme skittles_dark
+"colorscheme candy
+"colorscheme twilight
+"colorscheme grb256
+"colorscheme distinguished
 
 hi Cursor guibg=white
 hi Visual guibg=#333333 guifg=#EEEEEE
@@ -161,7 +181,7 @@ endif
 let macvim_hig_shift_movement = 1
 
 " NERDTree configuration
-let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$', '\.git$', '\.bundle$', '\.sass-cache$']
+let NERDTreeIgnore=['\.DS_Store$', '\.pyc$', '\.rbc$', '\~$', '\.git$', '\.bundle$', '\.sass-cache$']
 map <Leader>n :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
@@ -169,8 +189,15 @@ let NERDTreeDirArrows=1
 " Command-T
 let g:CommandTMaxHeight=20
 let g:CommandTMatchWindowReverse=1
+set wildignore+=*/node_modules/**
 
 " RubyTest
 map <Leader>s <Plug>RubyTestRun
 map <Leader>S <Plug>RubyFileRun
 
+" GitGutter
+let g:gitgutter_enabled = 0
+let g:gitgutter_highlight_lines = 1
+let g:gitgutter_on_bufenter = 0
+let g:gitgutter_all_on_focusgained = 0
+map <Leader>gm :GitGutterToggle<return>
